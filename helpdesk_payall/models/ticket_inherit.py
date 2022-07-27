@@ -45,6 +45,18 @@ class HelpdeskTicketInherit(models.Model):
             partner_id = vals.get('partner_id', False)
             partner_name = vals.get('partner_name', False)
             partner_email = vals.get('partner_email', False)
+            if partner_name and partner_email and not partner_id:
+                try:
+                    vals['partner_id'] = self.env['res.partner'].find_or_create(
+                        tools.formataddr((partner_name, partner_email))
+                    ).id
+                except UnicodeEncodeError:
+                    # 'formataddr' doesn't support non-ascii characters in email. Therefore, we fall
+                    # back on a simple partner creation.
+                    vals['partner_id'] = self.env['res.partner'].create({
+                        'name': partner_name,
+                        'email': partner_email,
+                    }).id
 
         # determine partner email for ticket with partner but no email given
         partners = self.env['res.partner'].browse([vals['partner_id'] for vals in list_value if
