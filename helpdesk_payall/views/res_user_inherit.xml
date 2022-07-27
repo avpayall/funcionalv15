@@ -1,0 +1,18 @@
+<odoo>
+    <data>
+        <record id="view_users_form_inherit" model="ir.ui.view">
+            <field name="name">res.users.form.inherit</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="base.view_users_form"/>
+            <field name="arch" type="xml">
+                <notebook colspan="4">
+                            <page name="relation" string="Relaciones Helpdesk">
+                                <group string="Helpdesk">
+                                    <field name="helpdesk_team_id" placeholder="Usuarios del Team"/>
+                                </group>
+                            </page>
+                </notebook>
+            </field>
+        </record>
+    </data>
+</odoo>

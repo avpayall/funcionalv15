@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="res_canales_form">
+            <field name="name">res.canales.form</field>
+            <field name="model">res.canales</field>
+            <field name="arch" type="xml">
+                <form string="Canales Form">
+                    <sheet>
+                        <field name="name" />
+                        <field name="canal_type_ids"/>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="res_canales_list">
+            <field name="name">res.canales.list</field>
+            <field name="model">res.canales</field>
+            <field name="arch" type="xml">
+                <tree string="Canal List">
+                    <field name="name" />
+                    <field name="canal_type_ids"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.actions.act_window" id="res_canales_list_action">
+            <field name="name">Canales</field>
+            <field name="res_model">res.canales</field>
+            <field name="view_mode">tree,form,pivot</field>
+            <field name="help" type="html"> <p class="o_view_nocontent_smiling_face"> Agregar Nuevo Canal </p> </field>
+        </record>
+
+        <menuitem id="menu_canales" name="Canales" parent="helpdesk.helpdesk_ticket_menu_main" sequence="30"  action="res_canales_list_action"/>
+    </data>
+</odoo>

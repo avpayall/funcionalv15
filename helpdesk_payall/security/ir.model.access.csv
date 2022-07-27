@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+res_timer_all, All users example ,model_res_timer,base.group_user,1,1,1,1
+res_canales_all, All users example ,model_res_canales,base.group_user,1,1,1,1
+res_clasificacion_all, All users example ,model_clasificacion_ticket,base.group_user,1,1,1,1
+res_user_all, All users example ,model_res_users,base.group_user,1,1,1,1

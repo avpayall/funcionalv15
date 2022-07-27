@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="timer_view_form">
+            <field name="name">res.timer.form</field>
+            <field name="model">res.timer</field>
+            <field name="arch" type="xml">
+                <form string="Timer Form">
+                    <header>
+                        <button
+                            name="stopping"
+                            groups="base.group_user"
+                            string="Stop"
+                            type="object"
+                            class="oe_highlight"
+                        />
+                    </header>
+                    <sheet>
+                        <h1><field name="start_timer" widget="float_time"/></h1>
+                        <group>
+                            <field name="start" />
+                            <field name="stop" />
+                            <field name="status_ticket"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="timer_view_list">
+            <field name="name">res.timer.list</field>
+            <field name="model">res.timer</field>
+            <field name="arch" type="xml">
+                <tree string="Timer List">
+                    <field name="start_timer"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="timer_list_action">
+            <field name="name">Timer</field>
+            <field name="res_model">res.timer</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create a new Timer
+                </p>
+            </field>
+        </record>
+
+        <menuitem name="Timer" id="menu_res_timer" sequence="1" />
+        <menuitem id="menu_res_timer_sub" name="Timer" parent="menu_res_timer" sequence="2" />
+        <menuitem id="menu_timer_timer" name="Timer" parent="menu_res_timer_sub" sequence="3" action="timer_list_action" />
+
+
+    </data>
+</odoo>

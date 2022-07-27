@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="clasificacion_ticket_form">
+            <field name="name">clasificacion.ticket.form</field>
+            <field name="model">clasificacion.ticket</field>
+            <field name="arch" type="xml">
+                <form string="Clasificacion Form">
+                    <sheet>
+                        <field name="name" />
+                        <field name="clasificacion_ticket_ids"/>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="clasificacion_ticket_list">
+            <field name="name">clasificacion.ticket.list</field>
+            <field name="model">clasificacion.ticket</field>
+            <field name="arch" type="xml">
+                <tree string="Clasificacion List">
+                    <field name="name" />
+                    <field name="clasificacion_ticket_ids"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="clasificacion_ticket_graph" model="ir.ui.view">
+            <field name="name">clasificacion.ticket.graph</field>
+            <field name="model">clasificacion.ticket</field>
+            <field name="arch" type="xml">
+                <graph string="Helpdesk Ticket Type Analysis" stacked="True" sample="1">
+                    <field name="name" type="col"/>
+                    <field name="clasificacion_ticket_ids" type="measure" widget="percentage"/>
+                </graph>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="clasificacion_ticket_list_action">
+            <field name="name">Clasificacion</field>
+            <field name="res_model">clasificacion.ticket</field>
+            <field name="view_mode">tree,form,pivot,graph</field>
+            <field name="help" type="html"> <p class="o_view_nocontent_smiling_face"> Agregar Nuevo Clasificacion </p> </field>
+        </record>
+
+        <menuitem id="menu_clasificacion" name="Clasificacion Ticket" parent="helpdesk.helpdesk_ticket_menu_main" sequence="35"  action="clasificacion_ticket_list_action"/>
+    </data>
+</odoo>
