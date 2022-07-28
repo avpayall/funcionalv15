@@ -90,7 +90,7 @@ class HelpdeskTicketInherit(models.Model):
                 vals['date_last_stage_update'] = now
 
         # context: no_log, because subtype already handle this
-        tickets = super(HelpdeskTicket, self).create(list_value)
+        tickets = super(HelpdeskTicketInherit, self).create(list_value)
 
         # make customer follower
         for ticket in tickets:
