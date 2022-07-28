@@ -27,5 +27,9 @@ class HelpdeskTicketInherit(models.Model):
             contar = self.env['helpdesk.ticket'].search_count([])
             record.contar = contar
 
+    
+    
+    
+    
 
 # PASAR ESTO A ODOO SH PARA PROBAR LA CREACION DE USUARIOS DESDE HELPDESK, VER SI NO FUNCIONA, LA IDEA ES QUE NO SE GENEREN
