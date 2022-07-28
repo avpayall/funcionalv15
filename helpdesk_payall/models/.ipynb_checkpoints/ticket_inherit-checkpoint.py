@@ -47,8 +47,7 @@ class HelpdeskTicketInherit(models.Model):
 
         # determine partner email for ticket with partner but no email given
         partners = self.env['res.partner'].browse([vals['partner_id'] for vals in list_value if 'partner_id' in vals and vals.get('partner_id') and 'partner_email' not in vals])
-        partner_email_map = {partner.id: partner.email for partner in partners}
-        partner_name_map = {partner.id: partner.name for partner in partners}
+        
 
         for vals in list_value:
             if vals.get('team_id'):
@@ -65,11 +64,7 @@ class HelpdeskTicketInherit(models.Model):
                     vals['assign_hours'] = 0
 
             # set partner email if in map of not given
-            if vals.get('partner_id') in partner_email_map:
-                vals['partner_email'] = partner_email_map.get(vals['partner_id'])
-            # set partner name if in map of not given
-            if vals.get('partner_id') in partner_name_map:
-                vals['partner_name'] = partner_name_map.get(vals['partner_id'])
+            
 
             if vals.get('stage_id'):
                 vals['date_last_stage_update'] = now
