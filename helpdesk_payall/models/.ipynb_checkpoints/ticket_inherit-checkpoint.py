@@ -43,11 +43,7 @@ class HelpdeskTicketInherit(models.Model):
 
         # Manually create a partner now since 'generate_recipients' doesn't keep the name. This is
         # to avoid intrusive changes in the 'mail' module
-        for vals in list_value:
-            partner_id = vals.get('partner_id', False)
-            partner_name = vals.get('partner_name', False)
-            partner_email = vals.get('partner_email', False)
-            
+        
 
         # determine partner email for ticket with partner but no email given
         partners = self.env['res.partner'].browse([vals['partner_id'] for vals in list_value if 'partner_id' in vals and vals.get('partner_id') and 'partner_email' not in vals])
