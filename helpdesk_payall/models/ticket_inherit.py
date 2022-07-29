@@ -46,7 +46,7 @@ class HelpdeskTicketInherit(models.Model):
         
 
         # determine partner email for ticket with partner but no email given
-        partners = self.env['res.partner'].browse([vals['partner_id'] for vals in list_value if 'partner_id' in vals and vals.get('partner_id') and 'partner_email' not in vals])
+        #partners = self.env['res.partner'].browse([vals['partner_id'] for vals in list_value if 'partner_id' in vals and vals.get('partner_id') and 'partner_email' not in vals])
         
 
         for vals in list_value:
