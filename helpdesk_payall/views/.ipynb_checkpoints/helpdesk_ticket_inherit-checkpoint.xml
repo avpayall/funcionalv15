@@ -11,32 +11,9 @@
                 </xpath>
             </field>
         </record>
-
-        <record id="helpdesk_tickets_view_tree_inherit" model="ir.ui.view">
-            <field name="name">helpdesk.ticket.tree.inherit</field>
-            <field name="model">helpdesk.ticket</field>
-            <field name="inherit_id" ref="helpdesk.helpdesk_tickets_view_tree" />
-            <field name="arch" type="xml">
-            <xpath expr="//field[@name='display_name']" position="after">
-                <field name="clasificacion_ticket" optional="show"/>
-            </xpath>
-            </field>
-        </record>
         
         <record id="helpdesk_ticket_view_graph_analysis_inherit" model="ir.ui.view">
             <field name="name">helpdesk.ticket.report.analysis.graph.inherit</field>
-            <field name="model">helpdesk.ticket</field>
-            <field name="inherit_id" ref="helpdesk.helpdesk_ticket_view_graph_analysis" />
-            <field name="arch" type="xml">
-                <graph string="Helpdesk Ticket Analysis" stacked="True" sample="1">
-                    <field name="team_id" type="row"/>
-                    <field name="stage_id" type="col"/>
-                </graph>
-            </field>
-        </record>
-        
-        <record id="helpdesk_team_view_graph_analysis_inherit" model="ir.ui.view">
-            <field name="name">helpdesk.ticket.graph.inherit</field>
             <field name="model">helpdesk.ticket</field>
             <field name="inherit_id" ref="helpdesk.helpdesk_ticket_view_graph_analysis" />
             <field name="arch" type="xml">
