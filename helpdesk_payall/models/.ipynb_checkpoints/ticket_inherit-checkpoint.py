@@ -9,8 +9,8 @@ class HelpdeskTicketInherit(models.Model):
 
     # tag_ids = fields.Many2one('helpdesk.tag', string='Helpdesk Team', default=_default_team_id, index=True)
 
-    canal_type = fields.Many2one('res.canales', string='Canal', index=True)
-    clasificacion_ticket = fields.Many2one('clasificacion.ticket', string='Clasificación', index=True)
+    canal_type = fields.Many2one('res.canales', string='Canal', index=True, store=True)
+    clasificacion_ticket = fields.Many2one('clasificacion.ticket', string='Clasificación', index=True, store=True)
     # team_id = fields.Many2one('helpdesk.team', string='Helpdesk Team', default=_default_team_id, index=True)
     user_id = fields.Many2one(
         'res.users', string='Assigned to', default=lambda self: self._get_user())
