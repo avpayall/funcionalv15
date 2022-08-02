@@ -24,7 +24,7 @@
         </record>
         
         <record id="helpdesk_ticket_view_graph_analysis_inherit" model="ir.ui.view">
-            <field name="name">helpdesk.ticket.graph.analysis.inherit</field>
+            <field name="name">helpdesk.ticket.report.analysis.graph.inherit</field>
             <field name="model">helpdesk.ticket</field>
             <field name="inherit_id" ref="helpdesk.helpdesk_ticket_view_graph_analysis" />
             <field name="arch" type="xml">
