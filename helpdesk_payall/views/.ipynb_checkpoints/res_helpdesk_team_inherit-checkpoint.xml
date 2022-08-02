@@ -1,0 +1,15 @@
+<odoo>
+    <data>
+        <record id="helpdesk_team_view_form_inherit" model="ir.ui.view">
+            <field name="name">helpdesk.team.form.inherit</field>
+            <field name="model">helpdesk.team</field>
+            <field name="inherit_id" ref="helpdesk.helpdesk_team_view_form"/>
+            <field name="arch" type="xml">
+                    <xpath expr="//field[@name='visibility_member_ids']" position="after">
+                        <field name="member_ids" placeholder="Usuarios del Team"/>
+
+                    </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
