@@ -22,5 +22,17 @@
             </xpath>
             </field>
         </record>
+        
+        <record id="helpdesk_ticket_view_graph_main_inherit" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.graph.inherit</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="arch" type="xml">
+            <graph string="Helpdesk Tickets" type="line" stacked="True" sample="1">
+                <field name="create_date" type="row" interval="day"/>
+                <field name="stage_id" type="col"/>
+                <field name="clasificacion_ticket"/>
+            </graph>
+        </field>
+    </record>
     </data>
 </odoo>
